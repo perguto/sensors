@@ -4,24 +4,28 @@ const acl_y_display = document.getElementById('acl_y')
 const acl_z_display = document.getElementById('acl_z')
 const canvas = document.getElementById('canvas')
 const context = canvas.getContext('2d')
-context.fillstyle = '#f00'
-context.fil
+context.fillStyle = '#f00'
 
+function n2s(n,precision=4,places_before_period=2,pad=' '){
+	return n.toFixed(precision).padStart(precision+1+places_before_period,pad)
+}
 acl.addEventListener("reading", 
 updateAcl)
 function updateAcl(){
   console.log(`Acceleration along the X-axis ${acl.x}`);
-	const precision = 4
+	// const precision = 4
 	const x= acl.x ?? 10*Math.cos(performance.now()/1000)
 	const y= acl.y ?? 10*Math.sin(performance.now()/1000)
-	const z= acl.z
+	const z= acl.z ?? 2**.5*(x+y)
 	acl_x_display.textContent = 
-	x.toFixed(precision).padStart(4+precision,'0')
+	ns2(x)
 
   console.log(`Acceleration along the Y-axis ${acl.y}`);
-	acl_y_display.textContent = y.toFixed(precision).padStart(4+precision,'0')
+	acl_y_display.textContent = ns2(y)
+
   console.log(`Acceleration along the Z-axis ${acl.z}`);
-	acl_z_display.textContent = z.toFixed(precision).padStart(4+precision,'0')
+	acl_z_display.textContent = ns2(z)
+
 	const fillWidth = 10
 	const fillHeight = 10
 	const offset_x = canvas.width/2
@@ -31,4 +35,4 @@ function updateAcl(){
 
 acl.start();
 
-
+updateAcl()

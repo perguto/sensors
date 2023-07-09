@@ -7,11 +7,13 @@ const context = canvas.getContext('2d')
 context.fillstyle = '#f00'
 context.fil
 
-acl.addEventListener("reading", () => {
+acl.addEventListener("reading", 
+updateAcl)
+function updateAcl(){
   console.log(`Acceleration along the X-axis ${acl.x}`);
 	const precision = 4
-	const x= acl.x ?? Math.cos(performance.now()/1000)
-	const y= acl.y ?? Math.sin(performance.now()/1000)
+	const x= acl.x ?? 10*Math.cos(performance.now()/1000)
+	const y= acl.y ?? 10*Math.sin(performance.now()/1000)
 	const z= acl.z
 	acl_x_display.textContent = 
 	x.toFixed(precision).padStart(4+precision,'0')
@@ -25,7 +27,7 @@ acl.addEventListener("reading", () => {
 	const offset_x = canvas.width/2
 	const offset_y = canvas.height/2
 	context.fillRect(x + offset_x, y +offset_y,fillWidth,fillHeight)
-});
+};
 
 acl.start();
 

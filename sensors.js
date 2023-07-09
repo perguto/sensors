@@ -10,8 +10,8 @@ context.fil
 acl.addEventListener("reading", () => {
   console.log(`Acceleration along the X-axis ${acl.x}`);
 	const precision = 4
-	const x= acl.x
-	const y= acl.y
+	const x= acl.x ?? Math.cos(performance.now()/1000)
+	const y= acl.y ?? Math.sin(performance.now()/1000)
 	const z= acl.z
 	acl_x_display.textContent = 
 	x.toFixed(precision).padStart(4+precision,'0')

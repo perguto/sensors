@@ -18,13 +18,13 @@ function updateAcl() {
   const x = acl.x ?? 10 * Math.cos(performance.now() / 1000);
   const y = acl.y ?? 10 * Math.sin(performance.now() / 1000);
   const z = acl.z ?? 2 ** 0.5 * (x + y);
-  acl_x_display.textContent = ns2(x);
+  acl_x_display.textContent = n2s(x);
 
   console.log(`Acceleration along the Y-axis ${acl.y}`);
-  acl_y_display.textContent = ns2(y);
+  acl_y_display.textContent = n2s(y);
 
   console.log(`Acceleration along the Z-axis ${acl.z}`);
-  acl_z_display.textContent = ns2(z);
+  acl_z_display.textContent = n2s(z);
 
   const fillWidth = 10;
   const fillHeight = 10;

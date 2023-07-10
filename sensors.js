@@ -31,7 +31,7 @@ function updateAcl() {
   const offset_x = canvas.width / 2;
   const offset_y = canvas.height / 2;
   const max_g = 12;
-  const arrow_length = Math.min(canvas.width, canvas.height) / max_g;
+  const arrow_length = .5 * Math.min(canvas.width, canvas.height) / max_g;
   context.fillRect(
     arrow_length * x + offset_x,
     arrow_length * y + offset_y,

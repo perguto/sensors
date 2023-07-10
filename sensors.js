@@ -11,7 +11,6 @@ function n2s(n, precision = 4, places_before_period = 2, pad = " ") {
     .toFixed(precision)
     .padStart(precision + 1 + places_before_period, pad);
 }
-acl.addEventListener("reading", updateAcl);
 function updateAcl() {
   console.log(`Acceleration along the X-axis ${acl.x}`);
   // const precision = 4
@@ -40,6 +39,6 @@ function updateAcl() {
   );
 }
 
+acl.addEventListener("reading", updateAcl);
 acl.start();
-
 updateAcl();

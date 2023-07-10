@@ -40,6 +40,9 @@ function updateAcl() {
   const v = [t, x, y, z];
   setColumn(acl_history, v, history_last);
 	history_last++
+	if(history_last >= history_length){
+		history_last -= history_length
+	}
 
   acl_x_display.textContent = n2s(x);
 

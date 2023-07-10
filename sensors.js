@@ -15,8 +15,8 @@ acl.addEventListener("reading", updateAcl);
 function updateAcl() {
   console.log(`Acceleration along the X-axis ${acl.x}`);
   // const precision = 4
-  const x = acl.x ?? 10 * Math.cos(performance.now() / 1000);
-  const y = acl.y ?? 10 * Math.sin(performance.now() / 1000);
+  const x = acl.x ?? 10 * Math.cos(Date.now() / 1000);
+  const y = acl.y ?? 10 * Math.sin(Date.now() / 1000);
   const z = acl.z ?? 2 ** 0.5 * (x + y);
   acl_x_display.textContent = n2s(x);
 
